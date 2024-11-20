@@ -1,0 +1,28 @@
+- pipeline: "command action"
+  on: "CLICK"
+  refs:
+  - "refs/heads/master"
+  fail_on_prepare_env_warning: true
+  variables:
+  - key: "my_var"
+    value: "secure!6V7hQOLzzLjBoLkB9/relw==.s7/pqXVb0zAxlaFzwPuh8g=="
+    type: "VAR"
+    encrypted: true
+    settable: true
+  actions:
+  - action: "[tests.buddyci.com] Execute export my_var=ewfwef"
+    type: "SSH_COMMAND"
+    login: "buddy"
+    password: "secure!DBiNuMIkUeQlaSfj8yjrPg==./2QOF6hpB+kkHq+Qm8IMKA=="
+    host: "tests.buddyci.com"
+    commands:
+    - "export my_var=ewfwef"
+    run_as_script: true
+  - action: "[tests.buddyci.com] echo $my_var"
+    type: "SSH_COMMAND"
+    login: "buddy"
+    password: "secure!DBiNuMIkUeQlaSfj8yjrPg==./2QOF6hpB+kkHq+Qm8IMKA=="
+    host: "tests.buddyci.com"
+    commands:
+    - "echo $my_var"
+    run_as_script: true
